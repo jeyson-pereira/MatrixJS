@@ -20,7 +20,7 @@
 }
 
 .outputContainer {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .outputMatrix {
@@ -38,7 +38,7 @@
 }
 .outputMatrix td {
   display: inline-block;
-  overflow: scroll;
-  width: 200px;
+  text-align: center;
+  width: 80px;
   margin: 2px 7px 2px 20px;
 }
