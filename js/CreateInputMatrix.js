@@ -43,19 +43,3 @@ function onGenerateClick(tableNum) {
     tb.appendChild(tRow);
   }
 }
-
-function getExponentInput() {
-  let powerField = document.getElementById("expInput");
-  let exponent = parseInt(powerField.value);
-
-  let errorContainer = document.getElementById("expError");
-  errorContainer.innerHTML = "";
-
-  if (Number.isNaN(exponent)) {
-    // Throw error to user
-    errorContainer.innerHTML = "Enter valid exponent number";
-    return NaN;
-  }
-
-  return exponent;
-}
