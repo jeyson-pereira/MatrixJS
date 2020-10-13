@@ -23,7 +23,7 @@
     <div class="container mt-5">
         <div class="row">
             <!-- *MATRIZ A -->
-            <div class="col-sm text-center">
+            <div class="col-sm text-center m-2">
                 <h5 class="text-center">Matriz A</h5>
                 <div class="insert-table-matrix">
                     <div class="form-row">
@@ -58,21 +58,21 @@
                         A<span class="operator">×</span>B
                     </button>
                     <!-- *Trasnpuestas -->
-                    <div class="btn-group-vertical  mt-2">
-                        <button class="btn btn-primary" onclick="onCalculateClick('TransposeA')">A <sup>T</sup></button>
-                        <button class="btn btn-primary" onclick="onCalculateClick('TransposeB')">B <sup>T</sup></button>
-                    </div>
+                    <!-- <div class="btn-group-vertical  mt-2"> -->
+                    <button class="btn btn-primary mt-1" onclick="onCalculateClick('TransposeA')">A
+                        <sup>T</sup></button>
+                    <button class="btn btn-primary" onclick="onCalculateClick('TransposeB')">B <sup>T</sup></button>
+                    <!-- </div> -->
                     <!-- *Determinantes -->
-                    <div class="btn-group-vertical mt-2">
-                        <button class="btn btn-primary" onclick="onCalculateClick('DeterminantA')">det A</button>
-                        <button class="btn btn-primary" onclick="onCalculateClick('DeterminantB')">det B</button>
-                    </div>
-
+                    <!-- <div class="btn-group-vertical mt-2"> -->
+                    <button class="btn btn-primary mt-1" onclick="onCalculateClick('DeterminantA')">det A</button>
+                    <button class="btn btn-primary" onclick="onCalculateClick('DeterminantB')">det B</button>
                 </div>
+
             </div>
 
             <!-- *MATRIZ B -->
-            <div class="col-sm text-center">
+            <div class="col-sm text-center m-2">
                 <h5 class="text-center">Matriz B</h5>
                 <div class="insert-table-matrix">
                     <div class="form-row">
@@ -92,8 +92,11 @@
                     <div class="error" id="inputError2"></div>
                 </div>
             </div>
+
         </div>
-        <div class="error" id="inputError3"></div>
+    </div>
+
+    <div class="error" id="inputError3"></div>
     </div>
     <!-- *OUTPUT -->
     <div class="outputContainer">
