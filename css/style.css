@@ -1,0 +1,44 @@
+.operator {
+  margin-right: 2px;
+  margin-left: 2px;
+  color: rgb(255, 107, 255);
+  -webkit-text-fill-color: currentcolor;
+}
+
+#icn{
+  filter: contrast(120%);
+}
+
+#output {
+  display: block;
+  background-color: lightgrey;
+  border-radius: 15px;
+  height: 300px;
+  width: 100%;
+  overflow: scroll;
+  color:black;
+}
+
+.outputContainer {
+  font-size: 2rem;
+}
+
+.outputMatrix {
+  border-width: 0 medium 0 medium;
+  border-style: solid;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+.outputMatrix tr {
+  margin: 15px;
+  margin-right: 4px;
+}
+.outputMatrix tr:nth-child(even) {
+  background-color: rgb(199, 199, 199);
+}
+.outputMatrix td {
+  display: inline-block;
+  overflow: scroll;
+  width: 200px;
+  margin: 2px 7px 2px 20px;
+}

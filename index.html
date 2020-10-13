@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MatrixCalc JS</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <!-- Bootstrap Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container mt-n2 mb-n2 ml-5">
+
+            <h1><img src="icon.png" alt="icon" id="icn" height="80px" width="80px">
+                MatrixCalc JS</h1>
+        </div>
+    </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- *MATRIZ A -->
+            <div class="col-sm text-center">
+                <h5 class="text-center">Matriz A</h5>
+                <div class="insert-table-matrix">
+                    <div class="form-row">
+                        <div class="col">
+                            <input class="form-control text-center" placeholder="# filas" id="rowDim1" type="text">
+                        </div>x
+                        <div class="col">
+                            <input class="form-control text-center" placeholder="# columnas" id="columnsDim1"
+                                type="text"></div>
+                    </div>
+                    <div class="error" id="sizeError1"></div>
+                    <button class="btn btn-primary m-2" onclick="onGenerateClick(1)" type="button" name="submit"> Crear
+                        Matriz </button>
+                    <table class="table table-bordered table-condensed">
+                        <tbody id="tableBody1"> </tbody>
+                    </table>
+                    <div class="error" id="inputError1"></div>
+                </div>
+            </div>
+
+            <!-- *Btn's Operaciones -->
+            <div class="col-sm text-center mt-2 mb-4">
+                <div class="btn-group-vertical align-content-center">
+                    <!-- *Operaciones basicas -->
+                    <button class="btn btn-primary" onclick="onCalculateClick('Add')">
+                        A<span class="operator">+</span>B
+                    </button>
+                    <button class="btn btn-primary" onclick="onCalculateClick('Subtract')">
+                        A<span class="operator">-</span>B
+                    </button>
+                    <button class="btn btn-primary" onclick="onCalculateClick('Multiplication')">
+                        A<span class="operator">×</span>B
+                    </button>
+                    <!-- *Trasnpuestas -->
+                    <div class="btn-group-vertical  mt-2">
+                        <button class="btn btn-primary" onclick="onCalculateClick('TransposeA')">A <sup>T</sup></button>
+                        <button class="btn btn-primary" onclick="onCalculateClick('TransposeB')">B <sup>T</sup></button>
+                    </div>
+                    <!-- *Determinantes -->
+                    <div class="btn-group-vertical mt-2">
+                        <button class="btn btn-primary" onclick="onCalculateClick('DeterminantA')">det A</button>
+                        <button class="btn btn-primary" onclick="onCalculateClick('DeterminantB')">det B</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- *MATRIZ B -->
+            <div class="col-sm text-center">
+                <h5 class="text-center">Matriz B</h5>
+                <div class="insert-table-matrix">
+                    <div class="form-row">
+                        <div class="col">
+                            <input class="form-control text-center" placeholder="# filas" id="rowDim2" type="text">
+                        </div>x
+                        <div class="col">
+                            <input class="form-control text-center" placeholder="# columnas" id="columnsDim2"
+                                type="text"></div>
+                    </div>
+                    <div class="error" id="sizeError2"></div>
+                    <button class="btn btn-primary m-2" onclick="onGenerateClick(2)" type="button" name="submit"> Crear
+                        Matriz </button>
+                    <table class="table table-bordered table-condensed">
+                        <tbody id="tableBody2"> </tbody>
+                    </table>
+                    <div class="error" id="inputError2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="error" id="inputError3"></div>
+    </div>
+    <!-- *OUTPUT -->
+    <div class="outputContainer">
+
+        <em style="font-size: 0.65em;">Output</em>
+        <div id="output"> </div>
+    </div>
+
+    <!-- Script -->
+    <script src="js/CreateInputMatrix.js"></script>
+    <script src="js/basicMatrixOperations.js"> </script>
+    <script src="js/calculateDriver.js"> </script>
+    <script src="js/fraction.js"></script>
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
