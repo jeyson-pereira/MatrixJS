@@ -21,7 +21,7 @@ function onCalculateClick(opt) {
         case "DeterminantA":
             if (!isSquare(A)) { inputError1.innerHTML = ERROR_2; return; }
             let temp = det(A);
-            outputText = "\t" + fractNumb(temp);
+            outputText = "<div class='m-4'>" + fractNumb(temp) + "</div>";
             break;
 
         case "TransposeA":
@@ -31,7 +31,7 @@ function onCalculateClick(opt) {
         case "DeterminantB":
             if (!isSquare(B)) { inputError2.innerHTML = ERROR_2; return; }
             let temp2 = det(B);
-            outputText = "\t" + fractNumb(temp2);
+            outputText = "<div class='m-4'>" + fractNumb(temp2) + "</div>";
             break;
 
         case "TransposeB":
