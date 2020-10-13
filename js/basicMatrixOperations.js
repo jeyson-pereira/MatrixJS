@@ -28,7 +28,17 @@ function det(matrix) {
 
     return totalDet;
 }
+//*it get cofactors from matrix for main det function
+function getCofactorFrom(matrixO, row, column) {
+    let matrix = copy(matrixO);
+    for (let i = 0; i < matrix.length; i++) {
+        matrix[i].splice(column, 1);
+    }
+    matrix.splice(row, 1);
 
+    return matrix;
+}
+//*it validate matrix isSquare
 function isSquare(matrix) {
     return (matrix.length == matrix[0].length);
 }
