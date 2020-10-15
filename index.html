@@ -45,28 +45,42 @@
             </div>
 
             <!-- *Btn's Operaciones -->
-            <div class="col-sm text-center mt-2 mb-4">
+            <div class="col-sm text-center mb-4">
                 <div class="btn-group-vertical align-content-center">
                     <!-- *Operaciones basicas -->
-                    <button class="btn btn-primary" onclick="onCalculateClick('Add')">
+                    <button class="btn btn-info" onclick="onCalculateClick('Add')">
                         A<span class="operator">+</span>B
                     </button>
-                    <button class="btn btn-primary" onclick="onCalculateClick('Subtract')">
+                    <button class="btn btn-info" onclick="onCalculateClick('Subtract')">
                         A<span class="operator">-</span>B
                     </button>
-                    <button class="btn btn-primary" onclick="onCalculateClick('Multiplication')">
+                    <button class="btn btn-info" onclick="onCalculateClick('Multiplication')">
                         A<span class="operator">×</span>B
                     </button>
                     <!-- *Trasnpuestas -->
-                    <!-- <div class="btn-group-vertical  mt-2"> -->
-                    <button class="btn btn-primary mt-1" onclick="onCalculateClick('TransposeA')">A
+                    <button class="btn btn-info mt-1" onclick="onCalculateClick('TransposeA')">A
                         <sup>T</sup></button>
-                    <button class="btn btn-primary" onclick="onCalculateClick('TransposeB')">B <sup>T</sup></button>
-                    <!-- </div> -->
+                    <button class="btn btn-info" onclick="onCalculateClick('TransposeB')">B <sup>T</sup></button>
                     <!-- *Determinantes -->
-                    <!-- <div class="btn-group-vertical mt-2"> -->
-                    <button class="btn btn-primary mt-1" onclick="onCalculateClick('DeterminantA')">det A</button>
-                    <button class="btn btn-primary" onclick="onCalculateClick('DeterminantB')">det B</button>
+                    <button class="btn btn-info mt-1" onclick="onCalculateClick('DeterminantA')">det A</button>
+                    <button class="btn btn-info" onclick="onCalculateClick('DeterminantB')">det B</button>
+                    <!-- *K x A -->
+                    <div class="input-group mt-2">
+                        <input type="text" size="3" class="form-control" placeholder="K" id="inputK1">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-info" onclick="onCalculateClick('KxA')" type="button"><span
+                                    class="operator">×</span>A</button>
+                        </div>
+                    </div>
+                    <!-- *K x B -->
+                    <div class="input-group mt-2">
+                        <input type="text" size="3" class="form-control" placeholder="K" id="inputK2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-info" onclick="onCalculateClick('KxB')" type="button"><span
+                                    class="operator">×</span>B</button>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>

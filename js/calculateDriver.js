@@ -1,6 +1,7 @@
 const ERROR_1 = '<div class="alert alert-danger" role="alert">Datos de la matriz incompletos!</div>';
 const ERROR_2 = '<div class="alert alert-danger" role="alert">Tamaño de matriz no valido!</div>';
 const ERROR_3 = '<div class="alert alert-danger" role="alert">Estas matrices no se pueden multiplicar!</div>';
+const ERROR_4 = '<div class="alert alert-danger" role="alert">La constante ingresada no es valida!</div>';
 
 function onCalculateClick(opt) {
     let A = getInputMatrix(1);
@@ -15,30 +16,36 @@ function onCalculateClick(opt) {
     inputError3.innerHTML = '';
 
     if (A == ERROR_1) { inputError1.innerHTML = ERROR_1; return; }
+    if (B == ERROR_2) { inputError2.innerHTML = ERROR_1; return; }
 
     let outputText = ""
     switch (opt) {
         case "DeterminantA":
+            if (A == ERROR_1) { inputError1.innerHTML = ERROR_1; return; }
             if (!isSquare(A)) { inputError1.innerHTML = ERROR_2; return; }
             let temp = det(A);
             outputText = `<div class='m-4'>${fractNumb(temp)}</div>`;
             break;
 
         case "TransposeA":
+            if (A == ERROR_1) { inputError1.innerHTML = ERROR_1; return; }
             outputText = stringFormat(transpose(A));
             break;
 
         case "DeterminantB":
+            if (B == ERROR_1) { inputError2.innerHTML = ERROR_1; return; }
             if (!isSquare(B)) { inputError2.innerHTML = ERROR_2; return; }
             let temp2 = det(B);
             outputText = `<div class='m-4'>${fractNumb(temp2)}</div>`;
             break;
 
         case "TransposeB":
+            if (B == ERROR_1) { inputError2.innerHTML = ERROR_1; return; }
             outputText = stringFormat(transpose(B));
             break;
 
         case "Multiplication":
+            if (A == ERROR_1) { inputError1.innerHTML = ERROR_1; return; }
             if (B == ERROR_1) { inputError2.innerHTML = ERROR_1; return; }
             if (!canMultiply(A, B)) { inputError3.innerHTML = ERROR_3; return; }
             let product = multiply(A, B);
@@ -46,17 +53,33 @@ function onCalculateClick(opt) {
             break;
 
         case "Add":
+            if (A == ERROR_1) { inputError1.innerHTML = ERROR_1; return; }
             if (B == ERROR_1) { inputError2.innerHTML = ERROR_1; return; }
-            if (!sameSize(A, B)) { inputError2.innerHTML = ERROR_2; return; }
+            if (!sameSize(A, B)) { inputError3.innerHTML = ERROR_2; return; }
             let sum = add(A, B);
             outputText = stringFormat(sum);
             break;
 
         case "Subtract":
+            if (A == ERROR_1) { inputError1.innerHTML = ERROR_1; return; }
             if (B == ERROR_1) { inputError2.innerHTML = ERROR_1; return; }
-            if (!sameSize(A, B)) { inputError2.innerHTML = ERROR_2; return; }
+            if (!sameSize(A, B)) { inputError3.innerHTML = ERROR_2; return; }
             let diff = subtract(A, B);
             outputText = stringFormat(diff);
+            break;
+        case "KxA":
+            if (A == ERROR_1) { inputError1.innerHTML = ERROR_1; return; }
+            let k = getInputK(1);
+            if (k == ERROR_4) { inputError3.innerHTML = ERROR_4; return; }
+            let productK = multiplyByConstant(k, A);
+            outputText = stringFormat(productK);
+            break;
+        case "KxB":
+            if (B == ERROR_1) { inputError2.innerHTML = ERROR_1; return; }
+            let k2 = getInputK(2);
+            if (k2 == ERROR_4) { inputError3.innerHTML = ERROR_4; return; }
+            let productKb = multiplyByConstant(k2, B);
+            outputText = stringFormat(productKb);
             break;
         default:
             outputText = "Opción invalida";
@@ -100,6 +123,27 @@ function getInputMatrix(tableNum) {
 
     return matrix;
 
+}
+
+function getInputK(numInputK) {
+    let kInput = document.getElementById("inputK" + numInputK);
+    let k = kInput.value;
+    if (k.includes('/')) {
+        let splitK = k.split('/');
+        let kFract = parseFloat((splitK[0] / splitK[1]));
+        if (Number.isNaN(kFract)) {
+            return ERROR_4;
+        } else {
+            return kFract;
+        }
+    } else {
+        let kInt = parseInt(k);
+        if (Number.isNaN(kInt)) {
+            return ERROR_4;
+        } else {
+            return kInt;
+        }
+    }
 }
 
 function stringFormat(matrix) {
