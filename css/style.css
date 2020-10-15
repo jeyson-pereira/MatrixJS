@@ -9,6 +9,10 @@
   filter: contrast(120%);
 }
 
+.navbar{
+  user-select: none;
+}
+
 #output {
   display: block;
   background-color: lightgrey;
