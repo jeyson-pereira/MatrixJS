@@ -30,7 +30,7 @@ function onGenerateClick(tableNum) {
   while (tb.firstChild) {
     tb.removeChild(tb.firstChild);
   }
-  //Generate and add table
+  //Genera y añade tabla de inputs
   for (let i = 0; i < row; i++) {
     let tRow = document.createElement("tr");
     for (let j = 0; j < column; j++) {

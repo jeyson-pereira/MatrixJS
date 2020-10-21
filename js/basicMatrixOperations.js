@@ -1,7 +1,7 @@
 //!Derterminant
 function det(matrix) {
 
-    //Matrix is 2x2, Calculate determinant
+    //si Matrix 2x2, Calcular determinante
     if (matrix.length == 2) {
         let a = matrix[0][0];
         let b = matrix[0][1];
@@ -12,15 +12,15 @@ function det(matrix) {
 
     const row = 0;
 
-    //Matrix is 3x3 or greater; recursively reduce to 2x2
+    //Matrix es 3x3 o mayor; recursividad para reducir a 2x2
     let totalDet = 0;
     for (let column = 0; column < matrix.length; column += 1) {
-        //Generate cofactor
+        //Generar cofactor
         let cofactor = getCofactorFrom(matrix, row, column);
-        //Calculate determinant for that cofactor
+        //Calcular determinante para matrix cofactor
         let subDet = det(cofactor);
         let sum = matrix[row][column] * subDet;
-        //Alternating, add and subtract the sum
+        //Alternar signo a sumar y restar la variable sum para acumular en el total
         let negative = (column + 1) % 2 == 0;
         if (negative) { sum *= -1; }
         totalDet += sum;
@@ -28,7 +28,7 @@ function det(matrix) {
 
     return totalDet;
 }
-//*it get cofactors from matrix for main det function
+//*esta funcion obtiene los cofactores de matrix para la funcion main det
 function getCofactorFrom(matrixO, row, column) {
     let matrix = copy(matrixO);
     for (let i = 0; i < matrix.length; i++) {
@@ -38,13 +38,13 @@ function getCofactorFrom(matrixO, row, column) {
 
     return matrix;
 }
-//*it validate matrix isSquare
+//* valida matrix es cuadrada (2x2, 3x3...)
 function isSquare(matrix) {
     return (matrix.length == matrix[0].length);
 }
 
 
-//!Transpose
+//!Transpuesta
 function transpose(matrixO) {
     let matrix = copy(matrixO);
     let transpose = [];
@@ -62,12 +62,12 @@ function transpose(matrixO) {
 }
 
 //!Multiply
-// *Validation Can Multiply
+// *Validacion si puede Multiplicar (filasA == columnasB)
 function canMultiply(matrix1, matrix2) {
     return (matrix1[0].length == matrix2.length);
 }
 
-// *Muliply main function
+// *Multiplicación funcion main 
 function multiply(matrix1O, matrix2O) {
     let matrix1 = copy(matrix1O);
     let matrix2 = copy(matrix2O);
@@ -87,7 +87,7 @@ function multiply(matrix1O, matrix2O) {
     return transformMatrix;
 }
 
-// *product vector*vector for main function
+// *producto de vector*vector para funcion main
 function dotProductof(vector1O, vector2O) {
     let vector1 = copy(vector1O);
     let vector2 = copy(vector2O);
@@ -100,7 +100,7 @@ function dotProductof(vector1O, vector2O) {
     return sum;
 }
 
-//* getColumVector for main function
+//* obtiene arreglo de vectores de columna de Matrix para funcion main
 function getColumnVectorFrom(matrixO, c) {
     let matrix = copy(matrixO);
     let cVector = [];
@@ -113,13 +113,14 @@ function getColumnVectorFrom(matrixO, c) {
 }
 
 
-//!Add & Subtract
+//!Suma & Resta
 
+//*Valida si son de igual tamaño (Asize == Bsize)
 function sameSize(matrix1, matrix2) {
     return (matrix1.length == matrix2.length) && (matrix1[0].length == matrix2[0].length);
 }
 
-//*add
+//*Suma
 function add(matrix1O, matrix2O) {
     let matrix1 = copy(matrix1O);
     let matrix2 = copy(matrix2O);
@@ -135,13 +136,13 @@ function add(matrix1O, matrix2O) {
     return sumMatrix
 }
 
-//*Subtract
+//*Resta
 function subtract(matrix1O, matrix2O) {
     let matrix2 = multiplyByConstant(-1, matrix2O);
     return add(matrix1O, matrix2);
 }
 
-//*multByK
+//*mult constante * Matrix
 function multiplyByConstant(k, matrixO) {
     let matrix = copy(matrixO);
     let transformMatrix = [];
@@ -156,9 +157,10 @@ function multiplyByConstant(k, matrixO) {
     return transformMatrix;
 }
 
-//! Utility
+//! Funcion de utilidad o ayuda
 
-//?Utility Function used to entirely copy over 2-D arrays to new pointer
+//? Function usada para copiar completamente la matriz
+//la funcion crea un clon profundo de objetos o matrices. 
 function copy(aObject) {
     if (!aObject) {
         return aObject;

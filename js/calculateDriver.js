@@ -1,8 +1,10 @@
+//*Errores
 const ERROR_1 = '<div class="alert alert-danger" role="alert">Datos de la matriz incompletos!</div>';
 const ERROR_2 = '<div class="alert alert-danger" role="alert">Tamaño de matriz no valido!</div>';
 const ERROR_3 = '<div class="alert alert-danger" role="alert">Estas matrices no se pueden multiplicar!</div>';
 const ERROR_4 = '<div class="alert alert-danger" role="alert">La constante ingresada no es valida!</div>';
 
+//*operations functions calls
 function onCalculateClick(opt) {
     let A = getInputMatrix(1);
     let B = getInputMatrix(2);
@@ -89,7 +91,7 @@ function onCalculateClick(opt) {
 }
 
 
-
+//*Obtener data de los inputs de la tabla generada
 function getInputMatrix(tableNum) {
     let matrix = [];
 
@@ -125,18 +127,22 @@ function getInputMatrix(tableNum) {
 
 }
 
+//*Obtener data de input K(constante)
 function getInputK(numInputK) {
     let kInput = document.getElementById("inputK" + numInputK);
     let k = kInput.value;
+    //!verifica si se ha ingresado texto en formato fraccionario
     if (k.includes('/')) {
         let splitK = k.split('/');
         let kFract = parseFloat((splitK[0] / splitK[1]));
         if (Number.isNaN(kFract)) {
             return ERROR_4;
         } else {
+            //!retorna la fraccion como decimal para poder operarse
             return kFract;
         }
     } else {
+        //! Si es un numero entero lo retorna tal cual
         let kInt = parseInt(k);
         if (Number.isNaN(kInt)) {
             return ERROR_4;
@@ -146,6 +152,8 @@ function getInputK(numInputK) {
     }
 }
 
+//*StringFormat le da formato al resultado
+//*Ordenando visualmente en una nueva tabla que ira al output
 function stringFormat(matrix) {
     let string = '<table class="outputMatrix"><tbody>';
 
@@ -155,7 +163,9 @@ function stringFormat(matrix) {
             let columnE = '<td>';
             let temp = parseFloat(matrix[row][column]);
             console.log(temp);
+            //! al recorrer el array verifica si la data es int o float
             if (temp % 1 == 0) { temp = parseInt(temp); }
+            //! si es float la convierte visualmente en fraccionario
             else { var f = new Fraction(temp); temp = (f.s * f.n + " / " + f.d); }
 
             let entry = "\t" + temp.toString();
@@ -173,7 +183,7 @@ function stringFormat(matrix) {
     return string;
 }
 
-
+//* verifica si es una fraccion x/1 o si es una fraccion x/y
 function fractNumb(numb) {
     let num = numb;
     let f = new Fraction(num);
