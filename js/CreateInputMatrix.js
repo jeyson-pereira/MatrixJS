@@ -1,5 +1,5 @@
 function onGenerateClick(tableNum) {
-  /* Get Size Inputs from Users */
+  //* Obtener tamaño matriz de inputs
 
   let input1 = document.getElementById("rowDim" + tableNum);
   let row = parseInt(input1.value);
@@ -8,7 +8,7 @@ function onGenerateClick(tableNum) {
   errorContainer.innerHTML = "";
 
   if (Number.isNaN(row)) {
-    // Throw error to user
+    //! Lanza error al usuario
     errorContainer.innerHTML = '<div class="alert alert-warning" role="alert">Ingresa número valido de filas</div>';
     return;
   }
@@ -16,21 +16,21 @@ function onGenerateClick(tableNum) {
   let input2 = document.getElementById("columnsDim" + tableNum);
   let column = parseInt(input2.value);
   if (Number.isNaN(column)) {
-    // Throw error to user
+    //! Lanza error al usuario
     errorContainer.innerHTML = '<div class="alert alert-warning" role="alert">Ingresa número valido de columnas</div>';
     return;
   }
 
 
-  /* Create Table for Matrix Input */
+  //* Crea Tabla para Matriz Inputs
 
-  // Get table container
+  //! Obtiene el elemento que va a contener la tabla
   let tb = document.getElementById("tableBody" + tableNum);
-  // Remove previous matrix
+  //! limpia el contenedor
   while (tb.firstChild) {
     tb.removeChild(tb.firstChild);
   }
-  //Genera y añade tabla de inputs
+  //!Genera y añade nueva tabla de inputs en el contenedor
   for (let i = 0; i < row; i++) {
     let tRow = document.createElement("tr");
     for (let j = 0; j < column; j++) {
