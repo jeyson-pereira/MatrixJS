@@ -2,7 +2,7 @@
 
 [MatrixJS Deployed](https://jeyson-pereira.github.io/MatrixJS/).
 <br />
-Calculadora de operaciones básicas (Suma, Resta, Multiplicación), Trasnpuesta, Determinante de matrices
+Calculadora de operaciones básicas (Suma, Resta, Multiplicación), Transpuesta, Determinante de matrices
 <br />
 
 <br />
