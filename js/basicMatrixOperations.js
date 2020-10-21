@@ -1,7 +1,7 @@
 //!Derterminant
 function det(matrix) {
 
-    //si Matrix 2x2, Calcular determinante
+    //!si Matrix 2x2, Calcular determinante
     if (matrix.length == 2) {
         let a = matrix[0][0];
         let b = matrix[0][1];
@@ -9,18 +9,18 @@ function det(matrix) {
         let d = matrix[1][1];
         return a * d - c * b;
     }
-
+    //! Tomando la fila 1
     const row = 0;
 
-    //Matrix es 3x3 o mayor; recursividad para reducir a 2x2
+    //!Matrix es 3x3 o mayor; recursividad para reducir a 2x2
     let totalDet = 0;
     for (let column = 0; column < matrix.length; column += 1) {
-        //Generar cofactor
+        //!Generar cofactor
         let cofactor = getCofactorFrom(matrix, row, column);
-        //Calcular determinante para matrix cofactor
+        //!Calcular determinante para matrix por cofactor
         let subDet = det(cofactor);
         let sum = matrix[row][column] * subDet;
-        //Alternar signo a sumar y restar la variable sum para acumular en el total
+        //!Alternar signo a sumar y restar la variable sum para acumular en el total
         let negative = (column + 1) % 2 == 0;
         if (negative) { sum *= -1; }
         totalDet += sum;
@@ -28,7 +28,7 @@ function det(matrix) {
 
     return totalDet;
 }
-//*esta funcion obtiene los cofactores de matrix para la funcion main det
+//*obtiene la matriz reducida de cofactores para la funcion main det
 function getCofactorFrom(matrixO, row, column) {
     let matrix = copy(matrixO);
     for (let i = 0; i < matrix.length; i++) {
