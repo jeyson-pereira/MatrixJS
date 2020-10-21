@@ -9,7 +9,7 @@ Calculadora de operaciones básicas (Suma, Resta, Multiplicación), Trasnpuesta,
 Calculadora simple que soporta operaciones simples entre matrices(nxm) A y B, teniendo en cuenta sus reglas.
 <br />
 Tomando valores fracionarios(x/y) en los campos y arrojando valores float en formato de fracción.
-usando la [Libreria](https://github.com/infusion/Fraction.js/). para esto.
+Usando la [Libreria](https://github.com/infusion/Fraction.js/) para esto.
 <br />
 
 # Creado Usando
