@@ -21,4 +21,4 @@ JavaScript/HTML/CSS - los principales lenguajes para el desarrollo web.
 
 # Motivación
 
-Esto fue construido como un proyecto académico.
+MatrixJS fue construido como un proyecto académico.
